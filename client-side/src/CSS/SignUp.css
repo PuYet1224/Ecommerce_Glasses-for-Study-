@@ -1,0 +1,43 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 40rem;
+}
+.container form h1 {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+.field input {
+    padding: 1rem 10rem 1rem 1rem;
+    font-size: 1rem;
+    margin: 0.5rem 0;
+    border: none;
+    border-bottom: 1px solid black;
+    outline: none;
+}
+button {
+    width: 100%;
+    padding: 1rem 0;
+    border: none;
+    background: #000;
+    color: #fff;
+    margin-bottom: 1rem;
+    font-size: 1rem;
+}
+.text {
+    font-family: poppins;
+}
+.hint {
+    color: #959595;
+    font-family: poppins;
+    margin: 0.5rem 0;
+}
+.fb-gg-icon img {
+    width: 2rem;
+    margin: 0.5rem 0.5rem;
+}
+@media (max-width:480px) {
+
+}

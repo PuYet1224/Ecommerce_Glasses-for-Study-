@@ -1,0 +1,255 @@
+.advertisement-container {
+  margin-top: 5rem;
+  display: flex;
+  flex-direction: column;
+}
+.top {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  height: 50rem;
+}
+.top .left-p {
+  margin-right: -2rem;
+  z-index: 9;
+  background: transparent;
+  position: absolute;
+}
+.top .left-p img {
+  height: 33rem;
+}
+.left-p .top-des {
+  position: absolute;
+  top: 25%;
+  transform: translateX(-50%);
+  left: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 60%;
+}
+.left-p .top-des h1 {
+  font-weight: 900;
+  font-family: "Oswald", sans-serif;
+  letter-spacing: 0.2rem;
+  color: black;
+  font-size: 3rem;
+  margin: 0 0;
+}
+.left-p .top-des p {
+  text-align: center;
+  font-size: 1.5rem;
+}
+.left-p .top-des button {
+  padding: 1rem 4rem;
+  font-size: 1rem;
+  letter-spacing: 0.2rem;
+  background: #000;
+  color: #fff;
+  border: none;
+  transition: 0.2s ease-in-out;
+  cursor: pointer;
+}
+.left-p .top-des button:hover {
+  background: #0000009e;
+}
+.right-p {
+  margin-left: -2rem;
+  position: absolute;
+}
+.middle {
+  margin-top: 5rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  height: 40rem;
+}
+.middle .left-f {
+  margin-right: -2rem;
+  padding: 5rem 6rem 5rem 4rem;
+  background: rgb(224 212 209);
+  position: absolute;
+}
+.middle .left-f img {
+  height: 30rem;
+}
+.middle .right-f {
+  background: transparent;
+  width: 21rem;
+  position: absolute;
+}
+.middle .right-f p {
+  background: transparent;
+  font-family: "Oswald", sans-serif;
+  font-size: 3rem;
+  margin: 0 0;
+  font-weight: 900;
+  letter-spacing: 0.2rem;
+  line-height: 3rem;
+}
+.middle .right-f div {
+  height: 1rem;
+  width: 5rem;
+  background: rgb(167, 158, 155);
+  margin: 5rem 0 1rem 1rem;
+}
+.middle .right-f button {
+  padding: 1rem 4rem;
+  font-size: 1rem;
+  letter-spacing: 0.2rem;
+  background: #000;
+  color: #fff;
+  border: none;
+  transition: 0.2s ease-in-out;
+  cursor: pointer;
+}
+.middle .right-f button:hover {
+  background: #0000009e;
+}
+.bottom {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 5rem;
+  background: #fff;
+  padding: 5rem 0;
+  position: relative;
+  height: 50rem;
+}
+.bottom .left-g {
+  background: transparent;
+  width: 21rem;
+  margin-right: -6rem;
+  z-index: 9;
+  position: absolute;
+}
+.bottom .left-g p {
+  background: transparent;
+  font-family: "Oswald", sans-serif;
+  font-size: 3rem;
+  margin: 0 0;
+  font-weight: 900;
+  letter-spacing: 0.2rem;
+  line-height: 3rem;
+}
+.bottom .left-g div {
+  height: 1rem;
+  width: 5rem;
+  background: rgb(167, 158, 155);
+  margin: 5rem 0 1rem 1rem;
+}
+.bottom .left-g button {
+  padding: 1rem 4rem;
+  font-size: 1rem;
+  letter-spacing: 0.2rem;
+  background: #000;
+  color: #fff;
+  border: none;
+  transition: 0.2s ease-in-out;
+  cursor: pointer;
+}
+.bottom .left-g button:hover {
+  background: #0000009e;
+}
+.bottom .right-g{
+  position: absolute;
+}
+.bottom .right-g img {
+  width: 40rem;
+}
+@media (max-width:1024px) {
+  .top{
+    height: 25rem;
+  }
+  .top .left-p img {
+    height: 15rem;
+    left: 7rem;
+    position: relative;
+  }
+  .left-p .top-des {
+    top: 20%;
+    transform: translateX(30%);
+  }
+  .left-p .top-des h1 {
+    font-size: 1.5rem;
+  }
+  .left-p .top-des p {
+    font-size: 1rem;
+  }
+  .left-p .top-des button {
+    padding: 0.5rem 2rem;
+    font-size: 0.5rem;
+  }
+  .right-p img{
+    height: 25rem;
+    position: relative;
+    right: 8rem;
+  }
+  .middle {
+    height: 25rem;
+  }
+  .middle .left-f {
+    margin-right: -15em;
+    padding: 3rem 4rem 3rem 2rem;
+  }
+  .middle .left-f img {
+    height: 15rem;
+  }
+  .middle .right-f {
+    width: 5rem;
+    position: relative;
+    left: -11rem;
+  }
+  .middle .right-f p {
+    font-size: 1rem;
+    line-height: 1rem;
+  }
+  .middle .right-f div {
+    height: 0.5rem;
+    width: 3rem;
+    background: rgb(167, 158, 155);
+    margin: 1rem 0 1rem 1rem;
+  }
+  .middle .right-f button {
+    padding: 0.5rem 2rem;
+    font-size: 0.5rem;
+  }
+  .bottom {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 5rem;
+    background: #fff;
+    padding: 5rem 0;
+    position: relative;
+    height: 30rem;
+  }
+  .bottom .left-g {
+    width: 6rem;
+    margin-right: -22rem;
+  }
+  .bottom .left-g p {
+    font-size: 1rem;
+    line-height: 1rem;
+  }
+  .bottom .left-g div {
+    height: 0.5rem;
+    width: 3rem;
+    background: rgb(167, 158, 155);
+    margin: 2rem 0 1rem 1rem;
+  }
+  .bottom .left-g button {
+    padding: 0.5rem 2rem;
+    font-size: 0.5rem;
+    letter-spacing: 0.2rem;
+  }
+  .bottom .right-g img {
+    width: 20rem;
+    position: relative;
+    right:4rem;
+  }
+}

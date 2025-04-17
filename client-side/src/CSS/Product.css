@@ -1,0 +1,142 @@
+.product-container {
+  display: flex;
+  width: 80rem;
+  margin: 5rem auto;
+}
+
+.top-p {
+  position: relative;
+  display: flex;
+  justify-content: flex-start;
+  width: 60rem;
+  margin: 0 auto;
+}
+
+.top-p p {
+  font-weight: 900;
+  font-family: "Oswald", sans-serif;
+  letter-spacing: 0.2rem;
+  color: black;
+  position: relative;
+  font-size: 3rem;
+  background: transparent;
+  z-index: 9;
+  padding: 0 1rem;
+}
+
+.top-p div:nth-of-type(1) {
+  position: absolute;
+  background: rgb(224 212 209);
+  width: 20rem;
+  height: 4rem;
+  top: 4.5rem;
+}
+
+.top-p div:nth-of-type(2) {
+  width: 3rem;
+  height: 0.5rem;
+  background: #000;
+  position: absolute;
+  bottom: 0;
+  left: 1rem;
+}
+
+.left-p {
+  display: flex;
+  flex-direction: column;
+}
+
+.left-p h1 {
+  font-family: poppins;
+  font-size: 1rem;
+  font-weight: normal;
+  margin: 0 0;
+  letter-spacing: 0.1rem;
+  padding: 0 0;
+}
+
+.left-p ul {
+  border-top: 1px solid black;
+  margin: 0 0;
+  padding: 0 0;
+}
+
+.left-p ul li {
+  list-style: none;
+}
+
+.left-p ul li a {
+  text-decoration: none;
+  color: #878787;
+  font-size: 0.9rem;
+}
+
+.product-card {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 3rem;
+  margin: 0 5rem;
+}
+
+.product-info {
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  padding: 0.5rem 0.5rem;
+  width: 12rem;
+}
+
+.product-info a {
+  text-decoration: none;
+  font-family: "Oswald", sans-serif;
+  color: #000;
+  font-size: 0.8rem;
+}
+
+.product-info .product-des,
+.product-price {
+  font-family: poppins;
+}
+
+.product-img {
+  max-width: 100%;
+  height: 12rem;
+  display: block;
+  margin: 0 auto;
+}
+
+.image-container {
+  width: 100%;
+  height: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.product-details {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.product-sex {
+  font-family: poppins;
+  font-size: 0.8rem;
+}
+
+@media (max-width:480px) {
+  .product-container{
+    flex-direction: column;
+  }
+  .left-p ul {
+    width: max-content;
+  }
+  .product-card{
+    grid-template-columns: repeat(2,1fr);
+    margin: 0 0;
+    width: 22rem;
+    gap: 0.5rem;
+  }
+  .product-info{
+    width: 10rem;
+  }
+}

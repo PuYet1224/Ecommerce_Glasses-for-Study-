@@ -1,0 +1,83 @@
+.footer-container {
+  display: flex;
+  justify-content: center;
+  gap: 7rem;
+  padding: 1rem 0 4rem 0;
+}
+.toc {
+  font-weight: 900;
+  font-family: "Oswald", sans-serif;
+  letter-spacing: 0.2rem;
+  color: black;
+  position: relative;
+  font-size: 1.5rem;
+}
+.toc:after {
+  content: "";
+  position: absolute;
+  background-color: rgb(94, 94, 74);
+  height: 0.25rem;
+  width: 2rem;
+  left: 0;
+  bottom: -10px;
+  transition: 0.2s;
+}
+.first-column div{
+    display: flex;
+    gap: 1rem;
+    margin-top: 2rem;
+}
+.first-column div img{
+    width: 3rem;
+}
+.second-column div{
+display: flex;
+flex-direction: column;
+gap: 0.5rem;
+}
+
+.second-column div input{
+padding: 0.75rem 1rem;
+font-size: 1.25rem;
+}
+.second-column div button{
+    padding: 0.75rem 0;
+    color: #fff;
+    background: #000;
+    border: none;
+    font-size: 1.25rem;
+}
+.third-column div{
+    display: flex;
+    gap: 1rem;
+    margin-top: 2rem;
+}
+.third-column div img{
+width: 3rem;
+}
+.fourth-column ul {
+    margin-top: 1.5rem;
+    list-style: none;
+}
+.fourth-column ul li{
+    font-weight: 900;
+    font-family: "Oswald", sans-serif;
+    letter-spacing: 0.2rem;
+    color: black;
+    position: relative;
+    font-size: 1.5rem;
+    text-decoration: underline;
+    margin-top: 1.5rem;
+}
+@media (max-width:1024px) {
+  .footer-container{
+    display: grid;
+    grid-template-columns: repeat(1,1fr);
+    gap: 2rem;
+  }
+  .fourth-column ul {
+    margin-top: 1.5rem;
+    list-style: none;
+    padding: 0;
+}
+}
