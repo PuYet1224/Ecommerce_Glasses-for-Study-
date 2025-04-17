@@ -21,28 +21,38 @@
 }
 
 .menu-items ul {
+  font-weight: 900;
+  font-family: "Oswald", sans-serif;
+  text-decoration: none;
   display: flex;
   list-style: none;
   gap: 3rem;
 }
-
+.menu-items ul:hover {
+  opacity: 0.7;
+}
 .menu-items ul li {
   letter-spacing: 0.1rem;
-  font-weight: 600;
+  font-weight: 700;
   cursor: pointer;
 }
-
+.menu-items ul a {
+  text-decoration: none;
+  color: #000;
+}
 .user-cart {
   display: flex;
   gap: 2rem;
 }
 
 .user-cart div img {
-  height: 2rem;
+  height: 1.5rem;
 }
 
 .user-cart .user {
+  font-family: "Oswald", sans-serif;
   display: flex;
+  gap: 5px;
   align-items: center;
   cursor: pointer;
 }

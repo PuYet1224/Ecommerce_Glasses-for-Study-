@@ -2,7 +2,7 @@ import { useEffect, useState, useContext } from 'react';
 import { useNavigate, useParams, Navigate } from 'react-router-dom';
 import { AuthContext } from '../Context/AuthContext';
 import { fetchOne, saveProduct } from '../services/adminProduct';
-
+import '../CSS/AdminProductForm.css'
 const init = {
   product_name:'', product_type:'Glasses', product_price:0,
   product_description:'', product_genderOptions:'unisex',
@@ -44,7 +44,7 @@ export default function AdminProductForm() {
       <h2>{slug ? 'Edit' : 'New'} Product</h2>
 
       <label>Name
-        <input name="product_name" value={v.product_name} onChange={onChange} required/>
+        <input type="text" name="product_name" value={v.product_name} onChange={onChange} required/>
       </label>
 
       <label>Type

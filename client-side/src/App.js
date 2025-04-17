@@ -11,7 +11,6 @@ import About from './Pages/About';
 import Contact from './Pages/Contact';
 import Login from './Pages/Login';
 import SignUp from './Pages/SignUp';
-import Cart from './Pages/Cart';
 import SunglassesDetail from './Pages/SunglassesDetail';
 import OpticsDetail from './Pages/OpticsDetail';
 import GlassesDetail from './Pages/GlassesDetail';
@@ -34,7 +33,6 @@ const App = () => (
         <Route path="/contact" element={<Contact />} />
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<SignUp />} />
-        <Route path="/cart" element={<Cart />} />
         <Route path="/admin/products" element={<AdminProductList />} />
         <Route path="/admin/product/new" element={<AdminProductForm />} />
         <Route path="/admin/product/:id" element={<AdminProductForm />} />

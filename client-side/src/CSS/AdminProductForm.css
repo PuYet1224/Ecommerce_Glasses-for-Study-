@@ -1,0 +1,78 @@
+.admin-form {
+  max-width: 600px;
+  margin: 30px auto;
+  padding: 24px;
+  background: #fff;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  font-family: sans-serif;
+}
+
+.admin-form h2 {
+  margin-bottom: 24px;
+  font-size: 24px;
+  text-align: center;
+  color: #333;
+  background: #fff;
+}
+
+.admin-form label {
+  background-color: transparent !important;
+  display: block;
+  margin-bottom: 16px;
+  font-weight: bold;
+  color: #333;
+}
+
+.admin-form input[type="text"],
+.admin-form input[type="number"],
+.admin-form select,
+.admin-form textarea {
+  width: 100%;
+  padding: 10px 12px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  margin-top: 6px;
+  box-sizing: border-box;
+  background-color: #fafafa;
+  background-color: #fff !important;
+}
+
+.admin-form textarea {
+  resize: vertical;
+  min-height: 80px;
+}
+
+.admin-form input[type="file"] {
+  margin-top: 6px;
+  font-size: 14px;
+  background: #fff;
+}
+
+.admin-form button {
+  padding: 10px 20px;
+  font-size: 14px;
+  margin-right: 10px;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.admin-form button[type="submit"] {
+  background-color: black;
+  color: white;
+}
+
+.admin-form button[type="submit"]:hover {
+  background-color: #333;
+}
+
+.admin-form button[type="button"] {
+  background-color: #b71c1c;
+  color: white;
+}
+
+.admin-form button[type="button"]:hover {
+  background-color: #8a0000;
+}

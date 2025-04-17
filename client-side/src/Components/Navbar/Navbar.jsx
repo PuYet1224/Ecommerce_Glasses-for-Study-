@@ -6,8 +6,6 @@ import { AuthContext } from '../../Context/AuthContext';
 import './Navbar.css';
 import logo      from '../Assets/logo.png';
 import userIcon  from '../Assets/circle-user-solid.png';
-import cartIcon  from '../Assets/cart-shopping-solid.png';
-import barsIcon  from '../Assets/bars-solid (2).svg';
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
@@ -32,12 +30,12 @@ export default function Navbar() {
       {/* desktop / mobile menu */}
       <nav className={`menu-items ${open ? 'open' : ''}`}>
         <ul>
-          <li><Link to="/"           onClick={close}>HOME</Link></li>
-          <li><Link to="/sunglasses" onClick={close}>SUNGLASSES</Link></li>
-          <li><Link to="/optics"     onClick={close}>OPTICS</Link></li>
-          <li><Link to="/about"      onClick={close}>ABOUT</Link></li>
-          <li><Link to="/contact"    onClick={close}>CONTACT</Link></li>
-          <li><Link to="/glasses"    onClick={close}>GLASSES</Link></li>
+          <Link to="/"           onClick={close}><li>HOME</li></Link>
+          <Link to="/sunglasses" onClick={close}><li>SUNGLASSES</li></Link>
+          <Link to="/optics"     onClick={close}><li>OPTICS</li></Link>
+          <Link to="/glasses"    onClick={close}><li>GLASSES</li></Link>
+          <Link to="/about"      onClick={close}><li>ABOUT</li></Link>
+          <Link to="/contact"    onClick={close}><li>CONTACT</li></Link>
 
           {/* chỉ admin đăng nhập mới thấy */}
           {user && (
@@ -54,17 +52,7 @@ export default function Navbar() {
             ? <span onClick={onLogout} style={{cursor:'pointer'}}>Logout</span>
             : <Link to="/login">Log In</Link>}
         </div>
-
-        <div className="cart">
-          <Link to="/cart" onClick={close}>
-            <img src={cartIcon} alt="cart"/>
-            <div className="counter">0</div>
-          </Link>
-        </div>
       </div>
-
-      {/* hamburger */}
-      <img className="bars" src={barsIcon} alt="menu" onClick={() => setOpen(o=>!o)}/>
     </header>
   );
 }
