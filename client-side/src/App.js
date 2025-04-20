@@ -11,35 +11,31 @@ import About from './Pages/About';
 import Contact from './Pages/Contact';
 import Login from './Pages/Login';
 import SignUp from './Pages/SignUp';
-import SunglassesDetail from './Pages/SunglassesDetail';
-import OpticsDetail from './Pages/OpticsDetail';
-import GlassesDetail from './Pages/GlassesDetail';
 import AdminProductList from './Pages/AdminProductList';
 import AdminProductForm from './Pages/AdminProductForm';
+import ProductDetail from './Pages/ProductDetail';
 
-const App = () => (
-  <AuthProvider>
-    <BrowserRouter>
-      <Navbar />
-      <Routes>
-        <Route path="/sunglasses/:slug" element={<SunglassesDetail />} />
-        <Route path="/optics/:slug" element={<OpticsDetail />} />
-        <Route path="/glasses/:slug" element={<GlassesDetail />} />
-        <Route path="/" element={<Home />} />
-        <Route path="/sunglasses" element={<Sunglasses />} />
-        <Route path="/optics" element={<Optics />} />
-        <Route path="/glasses" element={<Glasses />} />
-        <Route path="/about" element={<About />} />
-        <Route path="/contact" element={<Contact />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/signup" element={<SignUp />} />
-        <Route path="/admin/products" element={<AdminProductList />} />
-        <Route path="/admin/product/new" element={<AdminProductForm />} />
-        <Route path="/admin/product/:id" element={<AdminProductForm />} />
-      </Routes>
-      <Footer />
-    </BrowserRouter>
-  </AuthProvider>
-);
-
-export default App;
+export default function App() {
+  return (
+    <AuthProvider>
+      <BrowserRouter>
+        <Navbar/>
+        <Routes>
+          <Route path="/:type/:slug" element={<ProductDetail/>}/>
+          <Route path="/" element={<Home/>}/>
+          <Route path="/sunglasses" element={<Sunglasses/>}/>
+          <Route path="/optics" element={<Optics/>}/>
+          <Route path="/glasses" element={<Glasses/>}/>
+          <Route path="/about" element={<About/>}/>
+          <Route path="/contact" element={<Contact/>}/>
+          <Route path="/login" element={<Login/>}/>
+          <Route path="/signup" element={<SignUp/>}/>
+          <Route path="/admin/products" element={<AdminProductList/>}/>
+          <Route path="/admin/product/new" element={<AdminProductForm/>}/>
+          <Route path="/admin/product/:id" element={<AdminProductForm/>}/>
+        </Routes>
+        <Footer/>
+      </BrowserRouter>
+    </AuthProvider>
+  );
+}

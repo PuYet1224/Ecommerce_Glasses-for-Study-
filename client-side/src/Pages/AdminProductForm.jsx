@@ -12,16 +12,16 @@ const init = {
   product_description: '',
   product_genderOptions: 'unisex',
   product_status: 'active',
-  product_image: null   // File khi user chọn
+  product_image: null  
 };
 
 export default function AdminProductForm() {
   const { user }   = useContext(AuthContext);
-  const { id: slug } = useParams();    // slug == product_slug
+  const { id: slug } = useParams();    
   const nav        = useNavigate();
   const [v, setV]  = useState(init);
 
-  // load khi edit
+
   useEffect(() => {
     if (user && slug) {
       fetchOne(slug).then(data => {
@@ -52,7 +52,6 @@ export default function AdminProductForm() {
   const onSubmit = async e => {
     e.preventDefault();
     const fd = new FormData();
-    // luôn phải gửi đủ các trường, kể cả khi edit
     fd.append('product_name', v.product_name);
     fd.append('product_type', v.product_type);
     fd.append('product_price', v.product_price);
@@ -60,7 +59,6 @@ export default function AdminProductForm() {
     fd.append('product_genderOptions', v.product_genderOptions);
     fd.append('product_status', v.product_status);
     if (v.product_id) fd.append('product_id', v.product_id);
-    // chỉ đính file khi user đã chọn
     if (v.product_image instanceof File) {
       fd.append('product_image', v.product_image);
     }

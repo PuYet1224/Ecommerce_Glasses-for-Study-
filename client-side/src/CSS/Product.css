@@ -1,5 +1,6 @@
 .product-container {
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
   width: 80rem;
   margin: 5rem auto;
 }
@@ -11,7 +12,7 @@
   width: 60rem;
   margin: 0 auto;
 }
-   
+
 .top-o p {
   font-weight: 900;
   font-family: "Oswald", sans-serif;
@@ -102,7 +103,7 @@
 }
 .product-gender {
   margin-top: 0;
-color: #00000074;
+  color: #00000074;
 }
 .product-info .product-des {
 }

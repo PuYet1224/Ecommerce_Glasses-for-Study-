@@ -27,7 +27,7 @@ const GlassesDetail = () => {
           <p>Price: ${product.product_price}</p>
           <p>{product.product_description}</p>
           <p>Gender: {product.product_genderOptions}</p>
-          <p>ID: {product.product_id}</p>
+          {/* <p>ID: {product.product_id}</p> */}
           <button>Add to cart</button>
         </section>
         <section className="right-pd">

@@ -32,13 +32,18 @@ export default function AdminProductList() {
         <div></div>
         <div></div>
       </div>
-      <button className="add" onClick={() => nav("/admin/product/new")}>Add New</button>
+      <button className="add" onClick={() => nav("/admin/product/new")}>
+        Add New
+      </button>
       <table>
         <thead>
           <tr>
             <th>ID</th>
             <th>Name</th>
+            <th>Price</th>
             <th>Type</th>
+            <th>Description</th>
+            <th>Gender</th>
             <th>Status</th>
             <th />
           </tr>
@@ -48,7 +53,10 @@ export default function AdminProductList() {
             <tr key={p._id}>
               <td>{p.product_id}</td>
               <td>{p.product_name}</td>
+              <td>{p.product_price}</td>
               <td>{p.product_type}</td>
+              <td>{p.product_description}</td>
+              <td>{p.product_genderOptions}</td>
               <td>{p.product_status}</td>
               <td>
                 <button onClick={() => nav(`/admin/product/${p.product_slug}`)}>
