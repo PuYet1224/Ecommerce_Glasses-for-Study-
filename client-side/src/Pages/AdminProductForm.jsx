@@ -2,39 +2,68 @@ import { useEffect, useState, useContext } from 'react';
 import { useNavigate, useParams, Navigate } from 'react-router-dom';
 import { AuthContext } from '../Context/AuthContext';
 import { fetchOne, saveProduct } from '../services/adminProduct';
-import '../CSS/AdminProductForm.css'
+import '../CSS/AdminProductForm.css';
+
 const init = {
-  product_name:'', product_type:'Glasses', product_price:0,
-  product_description:'', product_genderOptions:'unisex',
-  product_status:'active', product_image:null
+  product_id: '',
+  product_name: '',
+  product_type: 'Glasses',
+  product_price: 0,
+  product_description: '',
+  product_genderOptions: 'unisex',
+  product_status: 'active',
+  product_image: null   // File khi user chọn
 };
 
 export default function AdminProductForm() {
   const { user }   = useContext(AuthContext);
-  const { id: slug } = useParams();         
+  const { id: slug } = useParams();    // slug == product_slug
   const nav        = useNavigate();
-  const [v,setV]   = useState(init);
+  const [v, setV]  = useState(init);
 
-  /* load khi edit */
-  useEffect(()=>{
-    if (user && slug)
-      fetchOne(slug).then(d=>setV({...d, product_image:null}));
-  },[user,slug]);
+  // load khi edit
+  useEffect(() => {
+    if (user && slug) {
+      fetchOne(slug).then(data => {
+        setV({
+          product_id: data.product_id,
+          product_name: data.product_name,
+          product_type: data.product_type,
+          product_price: data.product_price,
+          product_description: data.product_description,
+          product_genderOptions: data.product_genderOptions,
+          product_status: data.product_status,
+          product_image: null
+        });
+      }).catch(console.error);
+    }
+  }, [user, slug]);
 
-  if (!user) return <Navigate to="/login" replace/>;
+  if (!user) return <Navigate to="/login" replace />;
 
-  const onChange = e =>{
-    const {name,value,files} = e.target;
-    setV(s=>({...s,[name]: files? files[0] : value}));
+  const onChange = e => {
+    const { name, files, value } = e.target;
+    setV(s => ({
+      ...s,
+      [name]: files ? files[0] : value
+    }));
   };
 
-  const onSubmit = async e =>{
+  const onSubmit = async e => {
     e.preventDefault();
     const fd = new FormData();
-    Object.entries(v).forEach(([k,val])=>{
-      if (val!==null && val!=='') fd.append(k,val);
-    });
-    if (v.product_id) fd.append('product_id', v.product_id); // khi sửa
+    // luôn phải gửi đủ các trường, kể cả khi edit
+    fd.append('product_name', v.product_name);
+    fd.append('product_type', v.product_type);
+    fd.append('product_price', v.product_price);
+    fd.append('product_description', v.product_description);
+    fd.append('product_genderOptions', v.product_genderOptions);
+    fd.append('product_status', v.product_status);
+    if (v.product_id) fd.append('product_id', v.product_id);
+    // chỉ đính file khi user đã chọn
+    if (v.product_image instanceof File) {
+      fd.append('product_image', v.product_image);
+    }
     await saveProduct(fd);
     nav('/admin/products');
   };
@@ -43,42 +72,88 @@ export default function AdminProductForm() {
     <form className="admin-form" onSubmit={onSubmit}>
       <h2>{slug ? 'Edit' : 'New'} Product</h2>
 
-      <label>Name
-        <input type="text" name="product_name" value={v.product_name} onChange={onChange} required/>
+      <label>
+        Name
+        <input
+          type="text"
+          name="product_name"
+          value={v.product_name}
+          onChange={onChange}
+          required
+        />
       </label>
 
-      <label>Type
-        <select name="product_type" value={v.product_type} onChange={onChange}>
-          {['Glasses','Sunglasses','Optics'].map(t=><option key={t}>{t}</option>)}
+      <label>
+        Type
+        <select
+          name="product_type"
+          value={v.product_type}
+          onChange={onChange}
+        >
+          {['Glasses','Sunglasses','Optics'].map(t => (
+            <option key={t} value={t}>{t}</option>
+          ))}
         </select>
       </label>
 
-      <label>Price
-        <input type="number" name="product_price" value={v.product_price} onChange={onChange} required/>
+      <label>
+        Price
+        <input
+          type="number"
+          name="product_price"
+          value={v.product_price}
+          onChange={onChange}
+          required
+        />
       </label>
 
-      <label>Gender
-        <select name="product_genderOptions" value={v.product_genderOptions} onChange={onChange}>
-          {['male','female','unisex'].map(g=><option key={g}>{g}</option>)}
+      <label>
+        Gender
+        <select
+          name="product_genderOptions"
+          value={v.product_genderOptions}
+          onChange={onChange}
+        >
+          {['male','female','unisex'].map(g => (
+            <option key={g} value={g}>{g}</option>
+          ))}
         </select>
       </label>
 
-      <label>Status
-        <select name="product_status" value={v.product_status} onChange={onChange}>
-          {['active','inactive'].map(s=><option key={s}>{s}</option>)}
+      <label>
+        Status
+        <select
+          name="product_status"
+          value={v.product_status}
+          onChange={onChange}
+        >
+          {['active','inactive'].map(s => (
+            <option key={s} value={s}>{s}</option>
+          ))}
         </select>
       </label>
 
-      <label>Description
-        <textarea name="product_description" value={v.product_description} onChange={onChange}/>
+      <label>
+        Description
+        <textarea
+          name="product_description"
+          value={v.product_description}
+          onChange={onChange}
+        />
       </label>
 
-      <label>Image
-        <input type="file" name="product_image" accept="image/*" onChange={onChange}/>
+      <label>
+        {slug ? 'Change Image' : 'Upload Image'}
+        <input
+          type="file"
+          name="product_image"
+          accept="image/*"
+          onChange={onChange}
+        />
       </label>
 
       <button type="submit">Save</button>
-      <button type="button" onClick={()=>nav(-1)}>Cancel</button>
+      <button type="button" onClick={() => nav(-1)}>Cancel</button>
     </form>
   );
 }

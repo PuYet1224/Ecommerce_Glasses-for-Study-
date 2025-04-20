@@ -46,6 +46,11 @@ class ProductFactory {
     return prod;
   }
 
+  static async queryAllProducts()
+  {
+    return await ProductModel.find({});
+  }
+
   static async deleteProduct(product_id) {
     const result = await ProductModel.deleteOne({ product_id });
     if (result.deletedCount === 0) throw new BadRequestError('Delete failed: Product not found.');

@@ -25,7 +25,7 @@ class ProductController {
   }
 
   getAllPublishProduct = async (req, res, next) => {
-    const result = await ProductService.queryProducts();
+    const result = await ProductService.queryAllProducts();
     new SuccessResponse({ message: 'Get all published products success!', metadata: result }).send(res);
   }
 

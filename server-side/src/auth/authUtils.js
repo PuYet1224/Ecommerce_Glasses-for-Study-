@@ -17,7 +17,7 @@ const createTokenPair = async (payload, publicKey, privateKey) => {
     try {
         // Access token
         const accessToken = await JWT.sign(payload, publicKey, {
-            expiresIn: '2 days'
+            expiresIn: '1 hour'
         });
 
         // Refresh token
